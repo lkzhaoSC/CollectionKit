@@ -23,7 +23,7 @@ public class FloatLayout<Data>: CollectionLayout<Data> {
     return rootLayout.contentSize
   }
 
-  override func _layout(collectionSize: CGSize, dataProvider: CollectionDataProvider<Data>, sizeProvider: @escaping (Int, Data, CGSize) -> CGSize) {
+  override public func _layout(collectionSize: CGSize, dataProvider: CollectionDataProvider<Data>, sizeProvider: @escaping (Int, Data, CGSize) -> CGSize) {
     rootLayout._layout(collectionSize: collectionSize, dataProvider: dataProvider, sizeProvider: sizeProvider)
     floatingFrames = rootLayout.frames.enumerated().filter { isFloated($0.offset, $0.element) }
   }
